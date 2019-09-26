@@ -1,6 +1,7 @@
 package edu.cnm.deepdive;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 
@@ -19,13 +20,9 @@ class SquareTest {
 
   @Test
   void isPerfectSquareException() {
-    assertThrows(IllegalArgumentException.class, new Executable() {
-      @Override
-      public void execute() throws Throwable {
-        Square.isPerfectSquare(-1);
-
-      }
-    });
+    assertThrows(IllegalArgumentException.class, () -> Square.isPerfectSquare(-1));
+    assertThrows(IllegalArgumentException.class, () -> Square.isPerfectSquare(-2));
+    assertThrows(IllegalArgumentException.class, () -> Square.isPerfectSquare(-3));
   }
 
 }
